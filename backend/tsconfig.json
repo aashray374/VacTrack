@@ -1,0 +1,27 @@
+{
+      "compilerOptions": {
+            "target": "ES6", // Good choice for a Node.js environment.
+            "module": "commonjs",
+            "baseUrl": ".",
+            "paths": {
+                  "@types/*": [
+                        "src/types/*"
+                  ]
+            } ,// CommonJS is standard for Node.js.
+        "strict": true, // Enables all strict type-checking options.
+            "esModuleInterop": true, // Allows default imports from modules with no default export.
+            "skipLibCheck": true, // Skips type checking of declaration files.
+            "experimentalDecorators": true, // Required for using decorators, if you're using them.
+            "emitDecoratorMetadata": true, // Required for design-time metadata for decorators.
+            "outDir": "./dist", // Output directory for compiled files.
+            "typeRoots": [
+                  "./node_modules/@types", // Default type definitions.
+            ]
+      },
+      "include": [
+            "src/**/*.ts",
+      ], // Includes all TypeScript files in the src directory.
+      "exclude": [
+            "node_modules"
+      ] // Excludes the node_modules directory.
+}

@@ -1,0 +1,41 @@
+lib/
+├── main.dart                      # Main entry point for the app
+├── presentation/                  # UI layer with screens and widgets
+│   ├── screens/                   # Contains different screens (pages) in the app
+│   │   ├── home_screen.dart       # Main dashboard screen for parents
+│   │   ├── child_profile_screen.dart # Screen to manage child profiles
+│   │   ├── appointment_screen.dart  # Screen to book and view appointments
+│   │   ├── vaccination_schedule_screen.dart # Schedule details for a child
+│   │   └── video_consultation_screen.dart   # Video consultation screen
+│   ├── widgets/                   # Reusable UI components
+│   │   ├── child_profile_card.dart    # Card widget for child profiles
+│   │   ├── appointment_card.dart      # Card widget for each appointment
+│   │   └── custom_button.dart         # Custom button widget used across the app
+│   └── themes/
+│       └── app_theme.dart         # Defines the app-wide themes and styles
+├── blocs/                         # Business Logic Layer with BLoC or Cubit files
+│   ├── auth_bloc.dart             # BLoC for authentication and user management
+│   ├── appointment_bloc.dart      # BLoC to manage appointments and related state
+│   ├── vaccination_bloc.dart      # BLoC to manage vaccination data and reminders
+│   └── video_consultation_bloc.dart # BLoC for video consultation sessions
+├── services/                      # Service Layer, contains API and local storage handlers
+│   ├── auth_service.dart          # Manages authentication (login, registration)
+│   ├── appointment_service.dart   # Handles appointment-related API requests
+│   ├── notification_service.dart  # Push notification setup and scheduling
+│   ├── vaccination_service.dart   # Manages vaccination data retrieval and updates
+│   └── video_consultation_service.dart # Integrates video SDK like Twilio or Agora
+├── data/                          # Data Layer, contains repositories and models
+│   ├── repositories/
+│   │   ├── appointment_repository.dart  # Manages appointment data from multiple sources
+│   │   ├── vaccination_repository.dart  # Manages vaccination data and history
+│   │   └── user_repository.dart         # Handles user data interactions
+│   ├── models/
+│   │   ├── child_model.dart        # Data model for child profile
+│   │   ├── appointment_model.dart  # Data model for appointment details
+│   │   └── vaccination_model.dart  # Data model for vaccination schedule and history
+│   └── providers/
+│       ├── api_provider.dart       # Handles all API calls using Dio or HTTP
+│       └── local_storage.dart      # Manages local storage (e.g., Hive or SharedPreferences)
+└── utils/                          # Utilities and helper functions
+    ├── constants.dart              # App-wide constants (API endpoints, key strings)
+    └── helpers.dart                # Helper functions (e.g., date formatting, validators)

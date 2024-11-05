@@ -1,0 +1,43 @@
+lib/
+├── main.dart                          # Main entry point for the app
+├── presentation/                      # UI Layer for screens and reusable widgets
+│   ├── pages/                         # Main pages of the admin panel
+│   │   ├── dashboard_page.dart        # Overview of stats, appointments, and notifications
+│   │   ├── appointment_page.dart      # Manages appointments (view, add, edit, delete)
+│   │   ├── patient_management_page.dart # Manage child profiles and records
+│   │   ├── inventory_page.dart        # Track vaccine inventory
+│   │   └── video_consultation_page.dart # Schedule and manage video consultations
+│   ├── widgets/                       # Reusable UI components
+│   │   ├── data_table.dart            # Table widget for listing appointments
+│   │   ├── inventory_card.dart        # Card widget for vaccine inventory
+│   │   └── custom_button.dart         # Custom button used across the admin panel
+│   └── themes/
+│       └── app_theme.dart             # App-wide theme and style definitions
+├── state_management/                  # State management with Cubit/BLoC or Provider
+│   ├── auth_cubit.dart                # Authentication state management
+│   ├── appointment_cubit.dart         # Appointment state and logic
+│   ├── inventory_cubit.dart           # Vaccine inventory management
+│   └── consultation_cubit.dart        # State for video consultations
+├── services/                          # Service layer for API interactions and integrations
+│   ├── auth_service.dart              # Authentication service for admin users
+│   ├── appointment_service.dart       # Appointment management API requests
+│   ├── inventory_service.dart         # Vaccine inventory data management
+│   ├── notification_service.dart      # Notification setup (email, SMS, push)
+│   └── video_service.dart             # Manages video SDK integration (Twilio, Agora, etc.)
+├── data/                              # Data layer with repositories and models
+│   ├── repositories/                  # Repositories handle API data retrieval and persistence
+│   │   ├── appointment_repository.dart # Handles appointment data access
+│   │   ├── patient_repository.dart    # Manages patient profile data
+│   │   ├── inventory_repository.dart  # Vaccine inventory management
+│   │   └── consultation_repository.dart # Handles video consultation sessions
+│   ├── models/                        # Data models for structured data handling
+│   │   ├── admin_model.dart           # Admin user model
+│   │   ├── appointment_model.dart     # Appointment model
+│   │   ├── patient_model.dart         # Patient profile and vaccination history
+│   │   └── inventory_model.dart       # Inventory model
+│   └── providers/                     # Data sources for API and local storage
+│       ├── api_provider.dart          # Handles HTTP requests to the backend
+│       └── local_storage.dart         # Caches data for offline or session use
+└── utils/                             # Utilities for constants and helper functions
+    ├── constants.dart                 # App-wide constants (API URLs, routes)
+    └── helpers.dart                   # Helper functions for formatting, etc.
