@@ -9,7 +9,7 @@ import 'package:vactrack_admin/screens/home/home.dart';
 
 class MyAppRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/login',
     routes: [
       GoRoute(
         name: MyRoutesConstants.home,

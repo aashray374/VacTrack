@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vactrack/models/vaccine.dart';
+import 'package:vactrack/router/router_const.dart';
 
 class VaccineCard extends StatelessWidget {
   const VaccineCard({super.key, required this.vaccine});
@@ -13,7 +15,7 @@ class VaccineCard extends StatelessWidget {
       child: SizedBox(
         child: GestureDetector(
           onTap: (){
-            //navigate to vaccine details page
+            GoRouter.of(context).pushNamed(MyRouteConstants.detailsVaccine,extra: vaccine);
           },
           child: Card(
               child: Padding(

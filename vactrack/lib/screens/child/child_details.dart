@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vactrack/models/child.dart';
+import 'package:vactrack/router/router_const.dart';
 import 'package:vactrack/screens/schedule/schedule_screen.dart';
 
 import '../../const.dart';
@@ -105,7 +106,7 @@ class ChildDetails extends StatelessWidget {
             children: [
               ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ScheduleScreen(child: child)));
+                  GoRouter.of(context).pushNamed(MyRouteConstants.schedule,extra: child);
                 },
                 icon: const Icon(Icons.schedule),
                 label: const Text("Schedule"),

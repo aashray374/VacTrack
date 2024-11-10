@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
       onLogin: (LoginData data) async {
         String? result = await _authUser(data);
         if (result == null) {
-          _navigateToHome(context);
+
         } else {
           return result;
         }
@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
       onSignup: (SignupData data) async {
         String? result = await _signupUser(data);
         if (result == null) {
-          _navigateToSignUp(context);
+
         } else {
           return result;
         }

@@ -52,6 +52,7 @@ class LoginScreen extends StatelessWidget {
         } else {
           return result;
         }
+        // GoRouter.of(context).pushReplacementNamed(MyRouteConstants.home);
       },
       onSubmitAnimationCompleted: () {
         // Optional: Add any animation completion logic here

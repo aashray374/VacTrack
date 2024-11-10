@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../../models/child.dart';
 import '../../services/image_services.dart';
@@ -55,6 +56,7 @@ class _ChildDetailsFormState extends State<ChildDetailsForm> {
         img: _selectedImage?.path,
       );
 
+      GoRouter.of(context).pop();
     }
   }
 

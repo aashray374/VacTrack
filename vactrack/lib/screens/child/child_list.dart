@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vactrack/models/child.dart';
+import 'package:vactrack/router/router_const.dart';
 import 'package:vactrack/screens/child/child_details.dart';
 import 'package:vactrack/services/child_sample_data.dart';
 import 'package:vactrack/widgets/child/child_list_tile.dart';
@@ -43,6 +44,10 @@ class _ChildListState extends State<ChildList> {
             onPressed: () => GoRouter.of(context).pop(),
             icon: const Icon(Icons.arrow_back_ios)),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        GoRouter.of(context).pushReplacementNamed(MyRouteConstants.addChild);
+      },
+      child: const Icon(Icons.add),),
       body: isLoading? const Center(
         child: CircularProgressIndicator(),
       ): children.isEmpty?const Center(
@@ -54,7 +59,7 @@ class _ChildListState extends State<ChildList> {
           return GestureDetector(
             onTap: (){
               Child child = children[index];
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> ChildDetails(child: child)));
+              GoRouter.of(context).pushNamed(MyRouteConstants.childInfo,extra: child);
             },
               child: ChildListTile(child: children[index],));
           },),
