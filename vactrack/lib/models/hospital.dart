@@ -6,8 +6,8 @@ class Hospital {
   int id;
   String name;
   String location;
-  Double lat;
-  Double long;
+  double lat;
+  double long;
   String contactNumber;
   List<Doctor> doctors;
 
@@ -27,8 +27,8 @@ class Hospital {
       id: json['id'] as int,
       name: json['name'] as String,
       location: json['location'] as String,
-      lat: json['lat'] as Double,
-      long: json['long'] as Double,
+      lat: json['lat'] as double,
+      long: json['long'] as double,
       contactNumber: json['contactNumber'] as String,
       doctors: (json['doctors'] as List<dynamic>)
           .map((doctorJson) => Doctor.fromJson(doctorJson as Map<String, dynamic>))

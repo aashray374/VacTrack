@@ -15,4 +15,6 @@ class MyRouteConstants{
   static String schedule = "schedule";
   static String consultation = "consultation";
   static String detailsVaccine = "vaccineDetails";
+  static String consultationScreen = "consultationScreen";
+  static String chatScreen = "chatScreen";
 }

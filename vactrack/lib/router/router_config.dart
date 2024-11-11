@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vactrack/chat/chat_screen.dart';
 import 'package:vactrack/models/vaccine.dart';
 import 'package:vactrack/router/router_const.dart';
 import 'package:vactrack/screens/child/child_details.dart';
+import 'package:vactrack/screens/consultation/consultation_screen.dart';
 import 'package:vactrack/screens/home/home.dart';
 import 'package:vactrack/screens/login/login.dart';
 import 'package:vactrack/screens/onboarding/splash.dart';
@@ -13,10 +15,11 @@ import 'package:vactrack/video/display_video_list.dart';
 import '../models/child.dart';
 import '../screens/child/add_child.dart';
 import '../screens/child/child_list.dart';
+import '../screens/map/map_screen.dart';
 
 class MyAppRouter {
   GoRouter router = GoRouter(
-    initialLocation: '/login',
+    initialLocation: '/',
     routes: [
       GoRoute(
         name: MyRouteConstants.home,
@@ -82,13 +85,21 @@ class MyAppRouter {
           return MaterialPage(child: ChildDetails(child: child));
         },
       ),
-      // GoRoute(
-      //   name: MyRouteConstants.mapScreen,
-      //   path: '/mapScreen',
-      //   pageBuilder: (context, state) {
-      //     return MaterialPage(child: MapScreen());
-      //   },
-      // ),
+      GoRoute(
+        name: MyRouteConstants.chatScreen,
+        path: '/chat',
+        pageBuilder: (context, state) {
+          final String chatId = state.extra as String;
+          return MaterialPage(child: ChatScreen(chatId: chatId));
+        },
+      ),
+      GoRoute(
+        name: MyRouteConstants.mapScreen,
+        path: '/mapScreen',
+        pageBuilder: (context, state) {
+          return MaterialPage(child: MapScreen());
+        },
+      ),
       // GoRoute(
       //   name: MyRouteConstants.appointmentsScreen,
       //   path: '/appointments',
@@ -131,6 +142,13 @@ class MyAppRouter {
           pageBuilder: (context,state){
             final vaccine = state.extra as Vaccine;
             return MaterialPage(child: VaccineDetails(vaccine: vaccine));
+          }
+      ),
+      GoRoute(
+          name: MyRouteConstants.consultationScreen,
+          path: "/consultationScreen",
+          pageBuilder: (context,state){
+            return MaterialPage(child: ConsultationScreen());
           }
       ),
     ],

@@ -59,7 +59,9 @@ class Home extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            GoRouter.of(context).pushNamed(MyRouteConstants.mapScreen);
+                          },
                           child: const TopListCard(
                             icon: Icon(Icons.location_on,
                                 color: Colors.white, size: 30),

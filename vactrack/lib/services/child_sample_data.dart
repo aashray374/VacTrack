@@ -1,7 +1,9 @@
+import 'package:vactrack/models/hospital.dart';
 import '../models/child.dart';
+import '../models/doctor.dart';
 import '../models/vaccine.dart';
 
-class SampleData{
+class SampleData {
   static List<Child> sampleChildren = [
     Child(
       name: "Alice Smith",
@@ -215,4 +217,100 @@ class SampleData{
       days: 4745, // Around 13 years after birth
     ),
   ];
+
+  List<Hospital> hospitalData = [
+    Hospital(
+      id: 1,
+      name: "City Health Hospital",
+      location: "Downtown City, Street 123",
+      lat: 40.712776,
+      long: -74.005974,
+      contactNumber: "+1 212-555-1234",
+      doctors: [
+        Doctor(id: 1, name: "Dr. John Doe", email: "johndoe@example.com", specialization: "Cardiology", hospitalId: 1),
+        Doctor(id: 2, name: "Dr. Jane Smith", email: "janesmith@example.com", specialization: "Pediatrics", hospitalId: 1),
+        Doctor(id: 3, name: "Dr. Sarah Johnson", email: "sarahj@example.com", specialization: "Neurology", hospitalId: 1),
+      ],
+    ),
+    Hospital(
+      id: 2,
+      name: "Greenfield Medical Center",
+      location: "Greenfield Area, Park Lane",
+      lat: 40.750000,
+      long: -73.990000,
+      contactNumber: "+1 212-555-5678",
+      doctors: [
+        Doctor(id: 4, name: "Dr. Emily Davis", email: "emilydavis@example.com", specialization: "Orthopedics", hospitalId: 2),
+        Doctor(id: 5, name: "Dr. Michael Brown", email: "michaelb@example.com", specialization: "Radiology", hospitalId: 2),
+      ],
+    ),
+    Hospital(
+      id: 3,
+      name: "Sunrise Medical Hospital",
+      location: "Sunrise Valley, Hillside Avenue 25",
+      lat: 41.203650,
+      long: -77.024097,
+      contactNumber: "+1 301-555-9876",
+      doctors: [
+        Doctor(id: 6, name: "Dr. Anna Williams", email: "annawilliams@example.com", specialization: "Gynecology", hospitalId: 3),
+        Doctor(id: 7, name: "Dr. David Wilson", email: "davidwilson@example.com", specialization: "Dermatology", hospitalId: 3),
+      ],
+    ),
+    Hospital(
+      id: 4,
+      name: "Lakeside Health Institute",
+      location: "Lakeside Town, Elm Street 98",
+      lat: 42.360081,
+      long: -71.058884,
+      contactNumber: "+1 617-555-3456",
+      doctors: [
+        Doctor(id: 8, name: "Dr. Lisa Carter", email: "lisacarter@example.com", specialization: "Internal Medicine", hospitalId: 4),
+        Doctor(id: 9, name: "Dr. Robert Green", email: "robertgreen@example.com", specialization: "Pediatrics", hospitalId: 4),
+        Doctor(id: 10, name: "Dr. Megan Clark", email: "meganclark@example.com", specialization: "Surgery", hospitalId: 4),
+      ],
+    ),
+    Hospital(
+      id: 5,
+      name: "Mountain View Medical Center",
+      location: "Mountain City, River Road 50",
+      lat: 39.099730,
+      long: -94.578572,
+      contactNumber: "+1 816-555-2345",
+      doctors: [
+        Doctor(id: 11, name: "Dr. William Harris", email: "williamharris@example.com", specialization: "Cardiology", hospitalId: 5),
+        Doctor(id: 12, name: "Dr. Julia Clark", email: "juliac@example.com", specialization: "Emergency Medicine", hospitalId: 5),
+        Doctor(id: 13, name: "Dr. Henry Martin", email: "henrymartin@example.com", specialization: "Gastroenterology", hospitalId: 5),
+      ],
+    ),
+    Hospital(
+      id: 6,
+      name: "Coastal Health Clinic",
+      location: "Coastal Bay, Ocean Drive 110",
+      lat: 37.774929,
+      long: -122.419418,
+      contactNumber: "+1 415-555-6543",
+      doctors: [
+        Doctor(id: 14, name: "Dr. Samuel King", email: "samuelking@example.com", specialization: "Pulmonology", hospitalId: 6),
+        Doctor(id: 15, name: "Dr. Olivia Thompson", email: "oliviathompson@example.com", specialization: "Endocrinology", hospitalId: 6),
+      ],
+    ),
+  ];
+
+
+  List<Doctor> doctors = [
+    Doctor(id: 1, name: "Dr. John Doe", email: "johndoe@example.com", specialization: "Cardiology", hospitalId: 1),
+    Doctor(id: 2, name: "Dr. Jane Smith", email: "janesmith@example.com", specialization: "Pediatrics", hospitalId: 1),
+    Doctor(id: 3, name: "Dr. Sarah Johnson", email: "sarahj@example.com", specialization: "Neurology", hospitalId: 1),
+    Doctor(id: 4, name: "Dr. Emily Davis", email: "emilydavis@example.com", specialization: "Orthopedics", hospitalId: 2),
+    Doctor(id: 5, name: "Dr. Michael Brown", email: "michaelb@example.com", specialization: "Radiology", hospitalId: 2),
+    Doctor(id: 8, name: "Dr. Lisa Carter", email: "lisacarter@example.com", specialization: "Internal Medicine", hospitalId: 4),
+    Doctor(id: 9, name: "Dr. Robert Green", email: "robertgreen@example.com", specialization: "Pediatrics", hospitalId: 4),
+    Doctor(id: 10, name: "Dr. Megan Clark", email: "meganclark@example.com", specialization: "Surgery", hospitalId: 4),
+    Doctor(id: 11, name: "Dr. William Harris", email: "williamharris@example.com", specialization: "Cardiology", hospitalId: 5),
+    Doctor(id: 12, name: "Dr. Julia Clark", email: "juliac@example.com", specialization: "Emergency Medicine", hospitalId: 5),
+    Doctor(id: 13, name: "Dr. Henry Martin", email: "henrymartin@example.com", specialization: "Gastroenterology", hospitalId: 5),
+    Doctor(id: 14, name: "Dr. Samuel King", email: "samuelking@example.com", specialization: "Pulmonology", hospitalId: 6),
+    Doctor(id: 15, name: "Dr. Olivia Thompson", email: "oliviathompson@example.com", specialization: "Endocrinology", hospitalId: 6),
+  ];
+
 }

@@ -113,7 +113,7 @@ class ChildDetails extends StatelessWidget {
               ),
               ElevatedButton.icon(
                 onPressed: () {
-                  // Action for second button
+                  GoRouter.of(context).pushNamed(MyRouteConstants.consultationScreen);
                 },
                 icon: const Icon(Icons.video_call),
                 label: const Text("Consultation"),
