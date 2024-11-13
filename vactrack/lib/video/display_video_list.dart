@@ -9,7 +9,7 @@ class VideoScreen extends StatelessWidget {
     "https://youtu.be/XNGf-rm2t5Q?si=t-0YfkCgyCipU9kA",
     "https://youtu.be/OG8bU1OJlm8?si=emAjccY-hfmh1lcb",
     "https://youtu.be/aBIBsfrAnkI?si=SqksrgrVjutLQ71x",
-    "https://youtu.be/XNGf-rm2t5Q?si=t-0YfkCgyCipU9kA",
+    "https://youtu.be/XNGf-rm2t5Q?si=t-0YfkCgyCipU9k A",
     "https://youtu.be/OG8bU1OJlm8?si=emAjccY-hfmh1lcb",
   ];
 
@@ -27,6 +27,9 @@ class VideoScreen extends StatelessWidget {
         itemCount: videoUrls.length,
         itemBuilder: (context, index) {
           return Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20)
+            ),
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: InkWell(
               onTap: () => Navigator.push(

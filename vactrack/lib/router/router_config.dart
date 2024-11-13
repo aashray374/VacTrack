@@ -42,13 +42,6 @@ class MyAppRouter {
           return const MaterialPage(child: LoginScreen());
         },
       ),
-      // GoRoute(
-      //   name: MyRouteConstants.completeDetails,
-      //   path: '/signUp',
-      //   pageBuilder: (context, state) {
-      //     return const MaterialPage(child: LoginScreen());
-      //   },
-      // ),
       GoRoute(
         name: MyRouteConstants.infoVideos,
         path: '/videos',

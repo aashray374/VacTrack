@@ -101,7 +101,6 @@ class Home extends StatelessWidget {
                               category: 'Info')),
                       GestureDetector(
                           onTap: () {
-                            print("working");
                             GoRouter.of(context).pushNamed(MyRouteConstants.allVaccines);
                           },
                           child: const FeatureCard(
@@ -109,7 +108,9 @@ class Home extends StatelessWidget {
                               label: 'Vaccine',
                               category: 'Info')),
                       GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            GoRouter.of(context).pushNamed(MyRouteConstants.infoVideos);
+                          },
                           child: const FeatureCard(
                               icon: Icons.video_collection,
                               label: 'Videos',

@@ -56,3 +56,57 @@ export const addDoctor = async (req: Request, res: Response): Promise<void> => {
             res.status(500).json({ message: 'Server error while adding doctor' });
       }
 };
+
+export const getHospitalById = async (req: Request, res: Response) : Promise<void> => {
+      try {
+            const {id} = req.body;
+
+            const hospital = await Hospital.findByPk(id);
+            
+            if(!hospital){
+                  res.status(404).json({ message: 'Hospital not found' });
+                  return;
+            }
+
+            res.status(200).json({
+                  message: 'hospital fetched perfectly',
+                  hospital: hospital
+            })
+
+
+      } catch (error) {
+            console.error('Error adding doctor:', error);
+            res.status(500).json({ message: 'Server error while adding doctor' });
+      }
+}
+
+
+export const deleteDoctor = async (req:Request, res: Response) : Promise<void> =>{
+      try{
+            const {hospitalId, doctorId} : {hospitalId:number, doctorId: number} = req.body;
+
+            const hospital = await Hospital.findByPk(hospitalId);
+
+            if(!hospital){
+                  res.status(404).json({ message: 'Hospital not found' });
+                  return;
+            }else{
+                  const doctor = await Doctor.findByPk(doctorId);
+
+                  if(!doctor){
+                        res.status(404).json({ message: 'doctor not found' });
+                        return;
+                  }else{
+
+                        await doctor.destroy;
+
+                        res.status(200).json({
+                              message: 'doctor deleted successfully'
+                        });
+                  }
+            }
+      }catch(error){
+            console.error('Error adding doctor:', error);
+            res.status(500).json({ message: 'Server error while deleteing doctor' });
+      }
+} 
