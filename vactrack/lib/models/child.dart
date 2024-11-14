@@ -7,7 +7,6 @@ class Child {
   final double gender;
   final String dob;
   final String? img;
-  final List<Vaccine> vaccinesToBeGiven; // List of vaccines to be given
   final Map<Vaccine, String> vaccinesTaken; // Map of vaccine to the date it was given
 
   Child({
@@ -16,7 +15,6 @@ class Child {
     required this.gender,
     required this.dob,
     this.img,
-    this.vaccinesToBeGiven = const [],
     this.vaccinesTaken = const {},
   });
 
@@ -39,9 +37,6 @@ class Child {
       gender: data['gender'],
       dob: data['dob'],
       img: data['img'],
-      vaccinesToBeGiven: (data['vaccinesToBeGiven'] as List<dynamic>)
-          .map((v) => Vaccine.fromJson(v as Map<String, dynamic>))
-          .toList(),
       vaccinesTaken: (data['vaccinesTaken'] as Map<String, dynamic>).map(
             (key, value) => MapEntry(Vaccine.fromJson(key as Map<String, dynamic>), value as String),
       ),
@@ -54,7 +49,6 @@ class Child {
     "gender": gender,
     "dob": dob,
     "img": img,
-    "vaccinesToBeGiven": vaccinesToBeGiven.map((v) => v.toJson()).toList(),
     "vaccinesTaken": vaccinesTaken.map((key, value) => MapEntry(key.toJson(), value)),
   };
 }

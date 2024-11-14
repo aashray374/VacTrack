@@ -17,14 +17,12 @@ class ScheduleScreen extends StatelessWidget {
           bottom: const TabBar(
             tabs: [
               Tab(text: "Prev Vaccines"),
-              Tab(text: "Upcoming Vaccines",),
             ],
           ),
         ),
         body: TabBarView(
           children: [
             GeneratePastVaccine(list: child.vaccinesTaken),
-            GenerateTimeline(vaccines: child.vaccinesToBeGiven, child: child)
           ],
         ),
       ),

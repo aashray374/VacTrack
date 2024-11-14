@@ -19,7 +19,7 @@ import '../screens/map/map_screen.dart';
 
 class MyAppRouter {
   GoRouter router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/splash',
     routes: [
       GoRoute(
         name: MyRouteConstants.home,
@@ -32,7 +32,7 @@ class MyAppRouter {
         name: MyRouteConstants.splash,
         path: '/splash',
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Splash());
+          return const MaterialPage(child: SplashScreen());
         },
       ),
       GoRoute(
@@ -90,7 +90,7 @@ class MyAppRouter {
         name: MyRouteConstants.mapScreen,
         path: '/mapScreen',
         pageBuilder: (context, state) {
-          return MaterialPage(child: MapScreen());
+          return const MaterialPage(child: MapScreen());
         },
       ),
       // GoRoute(

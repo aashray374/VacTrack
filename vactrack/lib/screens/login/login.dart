@@ -25,13 +25,6 @@ class LoginScreen extends StatelessWidget {
     return await AuthServices.resetPassword(name);
   }
 
-  void _navigateToHome(BuildContext context) {
-    GoRouter.of(context).pushReplacementNamed(MyRouteConstants.home);
-  }
-
-  void _navigateToSignUp(BuildContext context){
-
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +33,7 @@ class LoginScreen extends StatelessWidget {
       onLogin: (LoginData data) async {
         String? result = await _authUser(data);
         if (result == null) {
-          _navigateToHome(context);
+          GoRouter.of(context).pushReplacementNamed(MyRouteConstants.home);
         } else {
           return result;
         }
@@ -52,7 +45,7 @@ class LoginScreen extends StatelessWidget {
         } else {
           return result;
         }
-        // GoRouter.of(context).pushReplacementNamed(MyRouteConstants.home);
+        GoRouter.of(context).pushReplacementNamed(MyRouteConstants.home);
       },
       onSubmitAnimationCompleted: () {
         // Optional: Add any animation completion logic here

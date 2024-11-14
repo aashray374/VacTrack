@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vactrack/models/child.dart';
 import 'package:vactrack/router/router_const.dart';
-import 'package:vactrack/screens/child/child_details.dart';
-import 'package:vactrack/services/child_sample_data.dart';
 import 'package:vactrack/widgets/child/child_list_tile.dart';
 
 import '../../const.dart';
@@ -16,7 +14,7 @@ class ChildList extends StatefulWidget {
 }
 
 class _ChildListState extends State<ChildList> {
-  List<Child> children = SampleData.sampleChildren;
+  List<Child> children = [];
   bool isLoading = true;
 
   @override
