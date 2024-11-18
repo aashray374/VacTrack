@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:vactrack/services/child_services.dart';
 import '../../models/child.dart';
 import '../../services/image_services.dart';
 
@@ -46,16 +47,9 @@ class _ChildDetailsFormState extends State<ChildDetailsForm> {
     });
   }
 
-  void _submitForm() {
+  void _submitForm() async {
     if (_formKey.currentState!.validate()) {
-      Child child = Child(
-        name: _nameController.text,
-        adahar: _aadharController.text,
-        gender: _gender!,
-        dob: _dobController.text,
-        img: _selectedImage?.path,
-      );
-
+      await ChildServices.addChild( name: _nameController.text, adahar: _aadharController.text, gender: _gender!.toInt(), dob: _dobController.text);
       GoRouter.of(context).pop();
     }
   }
@@ -108,27 +102,26 @@ class _ChildDetailsFormState extends State<ChildDetailsForm> {
             Row(
               children: [
                 Expanded(
-                  child: DropdownButtonFormField<double>(
-                    value: _gender,
-                    decoration: InputDecoration(
-                      labelText: "Gender",
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+                  child: DropdownButtonFormField<int>(
+                      value: _gender?.toInt(),
+                      decoration: InputDecoration(
+                        labelText: "Gender",
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
+                      items: const [
+                        DropdownMenuItem(value: 1, child: Text("Male")),
+                        DropdownMenuItem(value: 2, child: Text("Female")),
+                      ],
+                      onChanged: (value) {
+                        setState(() {
+                          _gender = value?.toDouble(); // For consistency in UI
+                        });
+                      },
+                      validator: (value) => value == null ? "Please select gender" : null,
                     ),
-                    items: const [
-                      DropdownMenuItem(value: 1.0, child: Text("Male")),
-                      DropdownMenuItem(value: 2.0, child: Text("Female")),
-                    ],
-                    onChanged: (value) {
-                      setState(() {
-                        _gender = value;
-                      });
-                    },
-                    validator: (value) =>
-                    value == null ? "Please select gender" : null,
-                  ),
                 ),
                 const SizedBox(width: 15),
 

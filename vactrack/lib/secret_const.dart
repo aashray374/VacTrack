@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SecretConstants{
-  static String ip = "";
+  static String ip = "192.168.110.57:3000";
   static String token = "";
 
 

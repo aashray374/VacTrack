@@ -19,7 +19,7 @@ const sequelize = new Sequelize({
 });
 const connect = async()=>{
       try{
-            await sequelize.sync({force: true});
+            await sequelize.sync({});
             console.log('Database connected and synced');
       }catch(e){
             log(`Error ${e}`);

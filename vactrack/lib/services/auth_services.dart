@@ -14,7 +14,7 @@ class AuthServices extends ChangeNotifier {
   static Future<String?> signIn(String email, String password) async {
     try {
       final response = await http.post(
-        Uri.parse('http://${SecretConstants.ip}/parent/login'),
+        Uri.parse('http://${SecretConstants.ip}/api/parent/login'),
         // Replace with your API endpoint
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -24,6 +24,7 @@ class AuthServices extends ChangeNotifier {
           'password': password,
         }),
       );
+      print(response);
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -34,7 +35,7 @@ class AuthServices extends ChangeNotifier {
           // Store the token in shared preferences
           final prefs = await SharedPreferences.getInstance();
           await prefs.setString('token', token);
-
+          SecretConstants.token = token;
           // Navigate to the home page or desired screen
           // Navigator.pushReplacementNamed(
           //     context, '/home'); // Replace with your home route
@@ -52,6 +53,8 @@ class AuthServices extends ChangeNotifier {
         return 'Login failed. Server error ${response.statusCode}';
       }
     } catch (e) {
+
+      print(e);
       return "An error occurred: $e";
     }
   }
@@ -70,7 +73,7 @@ class AuthServices extends ChangeNotifier {
   static Future<String?> signUp(String email, String password) async {
     try {
       final response = await http.post(
-        Uri.parse('http://${SecretConstants.ip}/parent/create'),
+        Uri.parse('http://${SecretConstants.ip}/api/parent/create'),
         // Replace with your API endpoint
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

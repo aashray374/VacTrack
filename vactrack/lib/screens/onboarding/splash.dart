@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vactrack/router/router_const.dart';
+import 'package:vactrack/secret_const.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 1)); // Delay for 1 second
     if (token != null) {
       // Navigate to home page
+      SecretConstants.token = token;
       GoRouter.of(context).pushReplacementNamed(MyRouteConstants.home);
     } else {
       // Navigate to login page

@@ -9,6 +9,7 @@ import { Child } from '../models/child';
 const router = express.Router();
 
 router.post("/parent/create", async (req: Request, res: Response) => {
+      log(req.body);
       const { password, email, name, adahar, location }:
             { password: string; email: string; name?: string; adahar?: string; location?: string } = req.body;
 
@@ -50,7 +51,7 @@ router.post("/parent/create", async (req: Request, res: Response) => {
 });
 
 
-router.get("/parent/login", async (req: Request, res: Response) => {
+router.post("/parent/login", async (req: Request, res: Response) => {
       const { email, password }: { email: string; password: string } = req.body;
 
       try {
@@ -97,6 +98,7 @@ router.get("/parent/login", async (req: Request, res: Response) => {
 
 
 router.get("/getChildren", auth, async (req: Request, res: Response) => {
+      log("requested");
       try {
             const parentId = req.body.parent.id;
 
@@ -123,6 +125,7 @@ router.get("/getChildren", auth, async (req: Request, res: Response) => {
 
 
 router.post("/addChild", auth, async (req: Request, res: Response) => {
+      log(req.body);
       try {
             const parentId = req.body.parent.id;
 
