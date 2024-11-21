@@ -28,7 +28,7 @@ export class Child extends Model {
   gender!: number;
 
   @Column({
-    type: DataType.DATEONLY,
+    type: DataType.STRING,
     allowNull: false,
   })
   dob!: string;

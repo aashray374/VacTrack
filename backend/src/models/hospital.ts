@@ -4,47 +4,67 @@ import {
       Model,
       DataType,
       HasMany,
-    } from 'sequelize-typescript';
-    import { Doctor } from './doctor';
-    
-
-    @Table({
+      PrimaryKey,
+      AutoIncrement,
+  } from 'sequelize-typescript';
+  import { Doctor } from './doctor';
+  
+  @Table({
       tableName: 'hospitals',
       timestamps: true,
-    })
-    export class Hospital extends Model{
+  })
+  export class Hospital extends Model {
+      @PrimaryKey
+      @AutoIncrement
       @Column({
-        type: DataType.STRING,
-        allowNull: false,
+          type: DataType.INTEGER,
+      })
+      id!: number;
+  
+      @Column({
+          type: DataType.STRING,
+          allowNull: false,
       })
       name!: string;
-    
+
       @Column({
-        type: DataType.STRING,
-        allowNull: false,
-        unique: true,
+            type: DataType.STRING,
+            allowNull: false,
+        })
+        email!: string;
+
+        @Column({
+            type: DataType.STRING,
+            allowNull: false,
+        })
+        password!: string;
+  
+      @Column({
+          type: DataType.STRING,
+          allowNull: false,
+          unique: true,
       })
       location!: string;
-    
+  
       @Column({
-        type: DataType.DOUBLE,
-        allowNull: false,
+          type: DataType.DOUBLE,
+          allowNull: false,
       })
       lat!: number;
-    
+  
       @Column({
-        type: DataType.DOUBLE,
-        allowNull: false,
+          type: DataType.DOUBLE,
+          allowNull: false,
       })
       long!: number;
-    
+  
       @Column({
-        type: DataType.STRING,
-        allowNull: true,
+          type: DataType.STRING,
+          allowNull: true,
       })
       contactNumber!: string;
-    
+  
       @HasMany(() => Doctor)
       doctors!: Doctor[];
-    }
-    
+  }
+  

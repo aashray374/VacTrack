@@ -2,10 +2,13 @@ import express from 'express';
 import {connect} from './db/connect'
 import parentRoutes from './controllers/parent'
 import hospitalRoutes from './routes/hospital';
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
 
+
+app.use(cors());
 
 // using express.json because the request body is in json
 app.use(express.json());

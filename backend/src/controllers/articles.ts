@@ -37,3 +37,27 @@ export const deleteArticle = async (req: Request, res: Response) : Promise<void>
             res.status(500).json({ message: 'Error deleting appointment', error });
       }
 }
+
+
+export const getAllArticles = async (req: Request, res: Response): Promise<void> => {
+      try {
+          // Fetch all articles from the Articles table
+          const articles = await Articles.findAll();
+  
+          // Check if no articles are found
+          if (articles.length === 0) {
+              res.status(404).json({ message: 'No articles found' });
+              return;
+          }
+  
+          // Return the articles in response
+          res.status(200).json({
+              message: 'Articles fetched successfully',
+              articles,
+          });
+      } catch (error) {
+          console.error(`Error fetching articles: ${error}`);
+          res.status(500).json({ message: 'Error fetching articles', error });
+      }
+  };
+  

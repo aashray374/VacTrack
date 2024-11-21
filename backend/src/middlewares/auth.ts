@@ -9,7 +9,7 @@ export const auth = (req: Request, res: Response, next: NextFunction): void => {
     res.status(401).json({ msg: 'No token, authorization denied' });
     return;
   }
-
+  log(token);
   try {
     jwt.verify(token, "VacTrack", (err, decoded) => {
       if (err) {

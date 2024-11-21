@@ -10,15 +10,16 @@ class ChildServices {
 
   static List<Child> children = []; // Consider using a state management solution for live updates
 
-  static Future<List<Child>> fetchChildren(String token) async {
+  static Future<List<Child>> fetchChildren() async {
     final response = await http.get(
       Uri.parse('http://${SecretConstants.ip}/api/getChildren'),
       headers: <String, String>{
         'Authorization': SecretConstants.token==""? SecretConstants.getToken().toString(): SecretConstants.token, // Include the token in the request
       },
     );
-
+    print("response nahi hai");
     if (response.statusCode == 200) {
+      print("got my response successfully");
       final data = jsonDecode(response.body);
       if (data['children'] != null) {
         children = List<Child>.from(

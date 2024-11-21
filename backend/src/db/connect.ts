@@ -7,6 +7,9 @@ import { VaccineTaken } from '../models/vaccineTaken';
 import { log } from 'console';
 import { Hospital } from '../models/hospital';
 import { Doctor } from '../models/doctor';
+import {Videos} from '../models/videos';
+import {Appointment} from '../models/appointment'
+import { AcceptedAppointment } from '../models/acceptedAppointMents';
 
 const sequelize = new Sequelize({
   dialect: 'postgres',
@@ -15,11 +18,11 @@ const sequelize = new Sequelize({
   password: 'iiita123',
   database: 'VacTrack',
   logging: false,
-  models: [Parent, Child, Vaccine, VaccineTaken, Hospital, Doctor], 
+  models: [Parent, Child, Vaccine, VaccineTaken, Hospital, Doctor, Videos, Appointment, AcceptedAppointment], 
 });
 const connect = async()=>{
       try{
-            await sequelize.sync({});
+            await sequelize.sync();
             console.log('Database connected and synced');
       }catch(e){
             log(`Error ${e}`);

@@ -2,7 +2,8 @@ import { log } from 'console';
 import express, { Request, Response } from 'express';
 import { Videos } from '../models/videos';
 
-export const addArticle = async (req:Request,res: Response) : Promise<void> =>{
+
+export const addVideo = async (req:Request,res: Response) : Promise<void> =>{
       try {
             const { url } = req.body;
 
@@ -20,7 +21,7 @@ export const addArticle = async (req:Request,res: Response) : Promise<void> =>{
       }
 }
 
-export const deleteArticle = async (req: Request, res: Response) : Promise<void> =>{
+export const deleteVideo = async (req: Request, res: Response) : Promise<void> =>{
       try {
             const {id} = req.body;
 
@@ -37,3 +38,26 @@ export const deleteArticle = async (req: Request, res: Response) : Promise<void>
             res.status(500).json({ message: 'Error deleting appointment', error });
       }
 }
+
+
+export const getAllVideos = async (req: Request, res: Response): Promise<void> => {
+      try {
+          // Fetch all videos from the Videos table
+          const videos = await Videos.findAll();
+  
+          // Check if no videos are found
+          if (videos.length === 0) {
+              res.status(404).json({ message: 'No videos found' });
+              return;
+          }
+  
+          // Return the videos in response
+          res.status(200).json({
+              message: 'Videos fetched successfully',
+              videos,
+          });
+      } catch (error) {
+          console.error(`Error fetching videos: ${error}`);
+          res.status(500).json({ message: 'Error fetching videos', error });
+      }
+  };

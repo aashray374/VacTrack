@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vactrack/models/child.dart';
 import 'package:vactrack/router/router_const.dart';
+import 'package:vactrack/services/child_services.dart';
 import 'package:vactrack/widgets/child/child_list_tile.dart';
 
 import '../../const.dart';
@@ -24,10 +25,10 @@ class _ChildListState extends State<ChildList> {
   }
 
   Future<void> _fetchList() async{
-    Future.delayed(const Duration(milliseconds: 2500),(){
-      setState(() {
-        isLoading = false;
-      });
+    await ChildServices.fetchChildren();
+    setState(() {
+      isLoading = false;
+      children.addAll(ChildServices.children);
     });
   }
 
